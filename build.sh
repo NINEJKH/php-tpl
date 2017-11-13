@@ -40,7 +40,9 @@ else
 fi
 
 composer dump-autoload \
-  --classmap-authoritative
+  --classmap-authoritative \
+  --quiet \
+  --verbose
 
 if [[ ! -z "${RUN_COVERAGE}" ]]; then
   consolelog 'run tests & coverage'

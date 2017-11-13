@@ -11,7 +11,7 @@ class TplTest extends TestCase
 
     public function __construct()
     {
-        $this->tpl = new Tpl(__DIR__ . '/../../Data');
+        $this->tpl = new Tpl(realpath(__DIR__ . '/../../Data/'));
     }
 
     public function testAddStyles()
