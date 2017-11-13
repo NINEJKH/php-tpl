@@ -15,7 +15,8 @@ composer install \
   --no-interaction \
   --prefer-dist \
   --no-suggest \
-  &> /dev/null
+  --quiet \
+  --verbose
 
 consolelog 'install phpunit'
 # switch phpunit version depending on php version
@@ -23,21 +24,29 @@ if [[ "${php_version}" == 7.* ]]; then
   composer require \
     --dev \
     --update-with-dependencies \
-    phpunit/phpunit \
-    &> /dev/null
+    --quiet \
+    --verbose \
+    phpunit/phpunit
 elif [[ "${php_version}" == 5.6.* ]]; then
   composer require \
     --dev \
     --update-with-dependencies \
-    phpunit/phpunit '5.7.*' \
-    &> /dev/null
+    --quiet \
+    --verbose \
+    phpunit/phpunit '5.7.*'
 else
   composer require \
     --dev \
     --update-with-dependencies \
-    phpunit/phpunit '4.8.*' \
-    &> /dev/null
+    --quiet \
+    --verbose \
+    phpunit/phpunit '4.8.*'
 fi
+
+composer dump-autoload \
+  --classmap-authoritative \
+  --quiet \
+  --verbose
 
 if [[ ! -z "${RUN_COVERAGE}" ]]; then
   consolelog 'run tests & coverage'
@@ -53,14 +62,17 @@ fi
 consolelog 'composer optimise'
 composer remove \
   --dev \
-  phpunit/phpunit \
-  &> /dev/null
+  --quiet \
+  --verbose \
+  phpunit/phpunit
 
 composer install \
   --no-dev \
-  &> /dev/null
+  --quiet \
+  --verbose
 
 composer dump-autoload \
   --no-dev \
   --classmap-authoritative \
-  &> /dev/null
+  --quiet \
+  --verbose
