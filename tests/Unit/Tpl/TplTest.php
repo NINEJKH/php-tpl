@@ -7,24 +7,24 @@ use PHPUnit\Framework\TestCase;
 
 class TplTest extends TestCase
 {
-    protected $tpl;
+    protected static $tpl;
 
-    public function __construct()
+    public static function setUpBeforeClass()
     {
-        $this->tpl = new Tpl(__DIR__ . '/../../Data');
+        static::$tpl = new Tpl(__DIR__ . '/../../Data');
     }
 
     public function testAddStyles()
     {
-        $this->tpl->addStyle('http://just-a-style.com/style.css');
+        static::$tpl->addStyle('http://just-a-style.com/style.css');
 
-        $this->assertContains('http://just-a-style.com/style.css', $this->tpl->getStyles());
+        $this->assertContains('http://just-a-style.com/style.css', static::$tpl->getStyles());
     }
 
     public function testAddScripts()
     {
-        $this->tpl->addScript('http://just-a-script.com/script.js');
+        static::$tpl->addScript('http://just-a-script.com/script.js');
 
-        $this->assertContains('http://just-a-script.com/script.js', $this->tpl->getScripts());
+        $this->assertContains('http://just-a-script.com/script.js', static::$tpl->getScripts());
     }
 }
