@@ -1,0 +1,25 @@
+{
+    "name": "ninejkh/tpl",
+    "description": "A simple template engine",
+    "keywords": ["tpl", "template-engine"],
+    "homepage": "https://github.com/NINEJKH/php-tpl",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "9JKH (Pty) Ltd.",
+            "email": "hello@9jkh.co.za",
+            "homepage": "https://9jkh.co.za"
+        }
+    ],
+    "require": {
+        "php": ">=5.5.0",
+        "ext-intl": "*",
+        "mobiledetect/mobiledetectlib": "^2.8"
+    },
+    "require-dev": {
+        "satooshi/php-coveralls": "^1.0"
+    },
+    "autoload": {
+        "psr-4": {"NINEJKH\\": "src/"}
+    }
+}
