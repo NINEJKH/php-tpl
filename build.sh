@@ -39,6 +39,9 @@ else
     &> /dev/null
 fi
 
+composer dump-autoload \
+  --classmap-authoritative
+
 if [[ ! -z "${RUN_COVERAGE}" ]]; then
   consolelog 'run tests & coverage'
 
