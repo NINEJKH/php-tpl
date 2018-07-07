@@ -32,19 +32,14 @@ class Helpers
             return;
         }
 
-        if ($menu === '/') {
-            if ($menu === $_SERVER['REQUEST_URI']) {
-                echo ' active';
-                return;
-            } else {
-                return;
-            }
+        // normalise request-uri
+        $request_uri = mb_strtolower($_SERVER['REQUEST_URI']);
+        if (($pos = strpos($request_uri, '?')) !== false) {
+            $request_uri = substr($request_uri, 0, $pos);
         }
 
-        if (stripos($_SERVER['REQUEST_URI'], $menu) === 0) {
+        if ($menu === $request_uri) {
             echo ' active';
-            return;
-        } else {
             return;
         }
     }
