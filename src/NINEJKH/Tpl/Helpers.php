@@ -38,7 +38,7 @@ class Helpers
             $request_uri = substr($request_uri, 0, $pos);
         }
 
-        if ($menu === $request_uri) {
+        if (preg_match('~' . $menu . '~i', $request_uri)) {
             echo ' active';
             return;
         }
