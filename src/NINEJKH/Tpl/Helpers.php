@@ -33,7 +33,7 @@ class Helpers
         }
 
         // normalise request-uri
-        $request_uri = mb_strtolower($_SERVER['REQUEST_URI']);
+        $request_uri = mb_strtolower(urldecode($_SERVER['REQUEST_URI']));
         if (($pos = strpos($request_uri, '?')) !== false) {
             $request_uri = substr($request_uri, 0, $pos);
         }
