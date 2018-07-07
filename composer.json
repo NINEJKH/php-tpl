@@ -7,13 +7,12 @@
     "authors": [
         {
             "name": "9JKH (Pty) Ltd.",
-            "email": "hello@9jkh.co.za",
+            "email": "dev@9jkh.co.za",
             "homepage": "https://9jkh.co.za"
         }
     ],
     "require": {
         "php": ">=5.5.0",
-        "ext-intl": "*",
         "mobiledetect/mobiledetectlib": "^2.8"
     },
     "require-dev": {
