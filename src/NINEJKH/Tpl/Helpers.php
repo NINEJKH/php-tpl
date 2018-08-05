@@ -111,7 +111,7 @@ class Helpers
 
     public static function showAds()
     {
-        if (($_SERVER['SERVER_ADDR'] === '::1' || $_SERVER['SERVER_ADDR'] === '127.0.0.1') && empty($_GET['force_ads'])) {
+        if (($_SERVER['REMOTE_ADDR'] === '::1' || $_SERVER['REMOTE_ADDR'] === '127.0.0.1') && empty($_GET['force_ads'])) {
             return false;
         }
 
@@ -120,7 +120,7 @@ class Helpers
 
     public static function isDev()
     {
-        if ($_SERVER['SERVER_ADDR'] === '::1' || $_SERVER['SERVER_ADDR'] === '127.0.0.1' || !empty($_GET['force_dev'])) {
+        if ($_SERVER['REMOTE_ADDR'] === '::1' || $_SERVER['REMOTE_ADDR'] === '127.0.0.1' || !empty($_GET['force_dev'])) {
             return true;
         }
 
