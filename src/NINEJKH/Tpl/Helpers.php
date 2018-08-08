@@ -26,7 +26,7 @@ class Helpers
         return self::$mobileDetect;
     }
 
-    public static function active($menu)
+    public static function active($menu, $return = false)
     {
         if (empty($_SERVER['REQUEST_URI'])) {
             return;
@@ -39,8 +39,15 @@ class Helpers
         }
 
         if (preg_match('~' . $menu . '~i', $request_uri)) {
-            echo ' active';
-            return;
+            if (!$return) {
+                echo ' active';
+            } else {
+                return true;
+            }
+        }
+
+        if ($return) {
+            return false;
         }
     }
 
