@@ -20,5 +20,8 @@
     },
     "autoload": {
         "psr-4": {"NINEJKH\\": "src/"}
+    },
+    "suggest": {
+        "wyrihaximus/html-compress": "If installed, will automatically compress html output."
     }
 }
