@@ -66,7 +66,10 @@ class Tpl
         header('Content-Type: text/html; charset=UTF-8');
 
         extract($this->data);
+
+        ob_start([$this, 'output']);
         require $this->templateDir . DIRECTORY_SEPARATOR . $template . '.tpl.php';
+        ob_end_flush();
     }
 
     protected function escapeVar($data)
@@ -86,5 +89,15 @@ class Tpl
         }
 
         return $data;
+    }
+
+    protected function output($buffer)
+    {
+        if (!class_exists('\WyriHaximus\HtmlCompress\Factory')) {
+            return $buffer;
+        }
+
+        $parser = \WyriHaximus\HtmlCompress\Factory::construct();
+        return $parser->compress($buffer);
     }
 }
